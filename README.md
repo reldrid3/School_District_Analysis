@@ -3,6 +3,14 @@
 ## Overview
 Thanks to purported academic dishonesty from the Thomas High School 9th Grade students, this analysis update is designed to analyze the changes in the overall district analysis after replacing those grades with NaN grades (Not a Number, or Not Applicable).
 
+## Thomas High School 9th Grade
+### Characteristics
+Here are some characteristics of Thomas High School and the 9th grade that will be the main sections changing as we go through the grade adjustment:
+- Thomas High School has 1635 students, of which 461 are in the 9th grade.
+- Thomas High School is a Charter school.
+- Thomas High School has a budget of $638.00 per student.
+We can therefore expect those categories to be changed, while other categories remain mostly the same.
+
 ## Removal of Thomas High School 9th Grade Scores
 Removal of Thomas High School 9th grade scores was accomplished by using the .loc[] method to isolate only the math or reading scores of 9th grade Thomas HS students and replace them with 'NaN'.  A sample of this conditional is below:
 ```
@@ -18,6 +26,7 @@ student_data_df.loc[(student_data_df['grade'] == '9th') &
 #### Updated
 ![Updated District Summary](/Images/DistrictSummary.png)
 #### Analysis
+The only change in the district summary would be the change in math, reading, and overall passing percentages, which dropped 0.2%, 0.1%, and 0.2% respectively with the removal of the offending grades.
 
 ### School Summary
 #### Original
@@ -25,6 +34,7 @@ student_data_df.loc[(student_data_df['grade'] == '9th') &
 #### Updated
 ![Updated School Summary](/Images/SchoolSummary.png)
 #### Analysis
+
 
 ### Thomas High School Performance
 #### Original
