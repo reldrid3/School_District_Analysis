@@ -7,8 +7,9 @@ Thanks to purported academic dishonesty from the Thomas High School 9th Grade st
 ### Characteristics
 Here are some characteristics of Thomas High School and the 9th grade that will be the main sections changing as we go through the grade adjustment:
 - Thomas High School has 1635 students, of which 461 are in the 9th grade and 1174 are in grades 10-12.
-- Thomas High School is a Charter school.
 - Thomas High School has a budget of $638.00 per student.
+- Thomas High School is a Charter school.
+
 We can therefore expect those categories to be changed, while other categories remain mostly the same.
 
 ## Removal of Thomas High School 9th Grade Scores
@@ -17,7 +18,14 @@ Removal of Thomas High School 9th grade scores was accomplished by using the .lo
 student_data_df.loc[(student_data_df['grade'] == '9th') &
                     (student_data_df['school_name'] == 'Thomas High School'), ['reading_score']] = np.NaN
 ```
-One important change that needed to be made when calculating the overall passing percentages was using only the 10th-12th grade student population as the denominator, as calculating it with the full student body would drastically reduce the passing rate.
+One important change that needed to be made when calculating the overall passing percentages was using only the 10th-12th grade student population (1174) as the denominator, as calculating it with the full student body (1635) would drastically reduce the passing rate.
+
+```
+thomas_10th_12th_count = school_data_complete_df.loc[((school_data_complete_df['grade'] == '10th') |
+                    (school_data_complete_df['grade'] == '11th') |
+                    (school_data_complete_df['grade'] == '12th')) &
+                    (school_data_complete_df['school_name'] == 'Thomas High School'), :]["Student ID"].count()
+```
 
 ## Effects of Removing the Offending Grades
 
@@ -37,7 +45,7 @@ The only change in the district summary would be the change in math, reading, an
 #### Updated
 ![Updated Thomas HS Performance Compared to Top Schools](/Images/ThomasNewDataHead.png)
 #### Analysis
-Instead of looking at the entire school summary, I will be comparing only Thomas's data, as well as its rank to a few other top schools.  As you can see, the math and reading scores, as well as the passing percentages did change from the original data, but only slightly - the overall passing rate dropped by approximately 0.3%.  Reading score averages even went up, though passing rates went down (this is easily possible since the average is not equal to the passing rate of 70%).
+Instead of looking at the entire school summary, I will be comparing only Thomas's data, as well as its rank to a few other top schools.  As you can see, the math and reading scores, as well as the passing percentages did change from the original data, but only slightly - the overall passing rate dropped by approximately 0.3%.  Reading score averages even went up, though passing rates went down (this is easily possible since the average is not equal to the passing rate of 70%, and many scores in the low 70% -- passing but bringing down the average -- may have been dropped).
 
 If you look at the center "Incorrect" diagram, the passing percentages are far lower, as we were still dividing the passing scores by 1635, instead of 1174 after removing all of the 9th grade scores.  You can even see that the numbers differ by a factor of 1635/1174, or 1.39267.  For example, looking at math passing percentages, 66.911315 * 1.392674617 = 93.185690.
 
@@ -61,6 +69,7 @@ As can be expected, no other grades' scores were adjusted other than Thomas High
 #### Updated
 ![Updated Scores by School Spending per Student](/Images/PerStudentSpending.png)
 #### Analysis
+For this analysis, I did the bins a bit differently this time, aiming for equal-width rather than equal-frequency binning.  I felt this would give more information on schools without trying to split hairs on the right-skewed per-student-spending data.  The bin for Thomas HS is similar in both analyses, but one school is missing, so the numbers are slightly changed.  Overall, removing the Thomas HS 9th grade scores did little to impact the data.
 
 
 ### Scores by School Size
@@ -80,3 +89,4 @@ I adjusted the bins for the schools, but the 1000-1999 bin remained the same in 
 Much like scores by school size, the difference is so small that rounding error is enough to encompass a likely 0.1-0.3% change in the passing rates of the Charter group of schools.
 
 ## Summary
+Overall, the replacement of the Thomas High School 9th grade scores did little to change the district or school summaries presented here.  Even for Thomas HS itself, the change was relatively small, as Thomas HS was a high-achieving school, so removing strong scores from an already strong base didn't change that much.  Also possible is that only a few of the 9th graders actually cheated, and that removing the 9th graders mostly removed valid scores which correlated with Thomas HS's already high averages and passing percentages.
