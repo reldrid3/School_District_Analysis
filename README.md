@@ -37,20 +37,23 @@ The only change in the district summary would be the change in math, reading, an
 #### Updated
 ![Updated Thomas HS Performance Compared to Top Schools](/Images/ThomasNewDataHead.png)
 #### Analysis
-Instead of looking at the entire school summary, I will be comparing only Thomas's data, as well as its rank to a few other top schools.  As you can see, the math and reading scores, as well as the passing percentages did change from the original data, but only slightly.  Reading score averages even went up, though passing rates went down (this is easily possible since the average is not equal to the passing rate of 70%).  If you look at the center "Incorrect" diagram, the passing percentages are far lower, as we were dividing the passing scores by 1635, instead of 1174, after removing all of the 9th grade scores.  You can even see that the numbers differ by a factor of 1635/1174, or 1.39267.  For example, looking at math passing percentages, 66.911315 * 1.392674617 = 93.185690.
+Instead of looking at the entire school summary, I will be comparing only Thomas's data, as well as its rank to a few other top schools.  As you can see, the math and reading scores, as well as the passing percentages did change from the original data, but only slightly - the overall passing rate dropped by approximately 0.3%.  Reading score averages even went up, though passing rates went down (this is easily possible since the average is not equal to the passing rate of 70%).
+
+If you look at the center "Incorrect" diagram, the passing percentages are far lower, as we were still dividing the passing scores by 1635, instead of 1174 after removing all of the 9th grade scores.  You can even see that the numbers differ by a factor of 1635/1174, or 1.39267.  For example, looking at math passing percentages, 66.911315 * 1.392674617 = 93.185690.
 
 Thomas HS had been the #2 overall passing school in the district, and even after removing the 9th grade's scores, it still remains as successful.
 
 ### Math and Reading Scores by Grade
-#### Original Math
-![Original Math Scores by Grade](/Images/MathbyGradeModule.png)
-#### Updated Math
-![Updated Math Scores by Grade](/Images/MathbyGrade.png)
-#### Original Reading
-![Original Reading Scores by Grade](/Images/ReadingbyGradeModule.png)
-#### Updated Reading
-![Updated Reading Scores by Grade](/Images/ReadingbyGrade.png)
+#### Math Scores by Grade
+| Original Math Scores | Updated Math Scores |
+| --- | --- |
+| ![Original Math Scores by Grade](/Images/MathbyGradeModule.png) | ![Updated Math Scores by Grade](/Images/MathbyGrade.png) |
+#### Reading Score by Grade
+| Original Reading Scores | Updated Reading Scores |
+| --- | --- |
+| ![Original Reading Scores by Grade](/Images/ReadingbyGradeModule.png) | ![Updated Reading Scores by Grade](/Images/ReadingbyGrade.png) |
 #### Analysis
+As can be expected, no other grades' scores were adjusted other than Thomas High School's 9th grade, which now has "nan" as its score average.
 
 ### Scores by School Spending per Student
 #### Original
@@ -59,12 +62,14 @@ Thomas HS had been the #2 overall passing school in the district, and even after
 ![Updated Scores by School Spending per Student](/Images/PerStudentSpending.png)
 #### Analysis
 
+
 ### Scores by School Size
 #### Original
 ![Original Scores by School Size](/Images/ScoresbySizeModule.png)
 #### Updated
 ![Updated Scores by School Size](/Images/ScoresbySize.png)
 #### Analysis
+I adjusted the bins for the schools, but the 1000-1999 bin remained the same in this case.  The original data was rounded to the nearest 1%, while my data is more accurate, and while it doesn't show any inherent difference based on rounding error, it's likely that the difference in the passing percentages is in the 0.1-0.3% range.
 
 ### Scores by School Type
 #### Original
@@ -72,5 +77,6 @@ Thomas HS had been the #2 overall passing school in the district, and even after
 #### Updated
 ![Updated Scores by School Type](/Images/ScoresbyType.png)
 #### Analysis
+Much like scores by school size, the difference is so small that rounding error is enough to encompass a likely 0.1-0.3% change in the passing rates of the Charter group of schools.
 
 ## Summary
